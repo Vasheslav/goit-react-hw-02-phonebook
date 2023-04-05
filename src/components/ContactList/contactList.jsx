@@ -2,17 +2,17 @@ import React from "react";
 import ContactItem from '../ContactItem/contactItem';
 import PropTypes from "prop-types";
 
-const ContactList = ({ filter, contacts }) => {
+const ContactList = ({ filter, contacts, onDeleteContact }) => {
     const normalazedFilter = filter.toLowerCase()
     const filteredContacts = contacts.filter(
       contact => contact.name.toLowerCase().includes(normalazedFilter)
   );
     
-    return <ul>
+    return <div>
         {filteredContacts.map(contact => (
-            <ContactItem key={contact.id} name={contact.name} number={contact.number}/>
+          <ContactItem key={contact.id} name={contact.name} number={contact.number} onDelete={onDeleteContact} id={contact.id} />
         ))}
-          </ul>
+          </div>
 }
 
 export default ContactList;

@@ -1,8 +1,13 @@
 import React from "react"; 
 import PropTypes from "prop-types";
+import { Container, Button } from './contactItem.styled';
 
-const ContactItem = ({ name, number}) => {
-    return <li>{name}: {number}</li>
+const ContactItem = ({ name, number, onDelete, id}) => {
+    return <Container>
+        <li>{name}: {number}</li>
+        <Button onClick={()=>onDelete(id)}>Delete</Button>
+    </Container>
+    
 }
 
 export default ContactItem;
